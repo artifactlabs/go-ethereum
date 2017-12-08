@@ -47,7 +47,7 @@ const (
 	CopyGas          uint64 = 0     //
 	StackLimit       uint64 = 1024  // Maximum size of VM stack allowed.
 	TierStepGas      uint64 = 0     // Once per operation, for a selection of them.
-	LogTopicGas      uint64 = 375   // Multiplied by the * of the LOG*, per LOG transaction. e.g. LOG0 incurs 0 * c_txLogTopicGas, LOG4 incurs 4 * c_txLogTopicGas.
+	LogTopicGas      uint64 = 0   // Multiplied by the * of the LOG*, per LOG transaction. e.g. LOG0 incurs 0 * c_txLogTopicGas, LOG4 incurs 4 * c_txLogTopicGas.
 	CreateGas        uint64 = 0 // Once per CREATE operation & contract-creation transaction.
 	SuicideRefundGas uint64 = 0 // Refunded following a suicide operation.
 	MemoryGas        uint64 = 0     // Times the address of the (highest referenced byte in memory + 1). NOTE: referencing happens on read, write and in instructions such as RETURN and CALL.
@@ -77,7 +77,7 @@ var (
 	GenesisGasLimit        = big.NewInt(0)               			 // Gas limit of the Genesis block.
 	TargetGasLimit         = new(big.Int).Set(GenesisGasLimit) // The artificial target
 	DifficultyBoundDivisor = big.NewInt(2048)                  // The bound divisor of the difficulty, used in the update calculations.
-	GenesisDifficulty      = big.NewInt(0)                // Difficulty of the Genesis block.
-	MinimumDifficulty      = big.NewInt(0)                // The minimum that the difficulty may ever be.
+	GenesisDifficulty      = big.NewInt(1)                // Difficulty of the Genesis block.
+	MinimumDifficulty      = big.NewInt(1)                // The minimum that the difficulty may ever be.
 	DurationLimit          = big.NewInt(13)                    // The decision boundary on the blocktime duration used to determine whether difficulty should go up or not.
 )
